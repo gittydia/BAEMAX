@@ -1,5 +1,5 @@
 import { NavLink, Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import {
   AlertDialog,
@@ -11,6 +11,7 @@ import {
   AlertDialogAction,
 } from "@/components/ui/alert-dialog";
 import { Button } from "./ui/button";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 function Navbar() {
   const linkClass = ({ isActive }) =>
@@ -19,6 +20,43 @@ function Navbar() {
       : " text-white hover:bg-gray-300 hover:text-gray-800 w-12 h-12 flex items-center justify-center p-4 rounded-md duration-300";
 
   const { user } = useContext(UserContext);
+
+  const [userInput, setUserInput] = useState('');
+  const [aiResponse, setAiResponse] = useState('');
+
+  const genAI = new GoogleGenerativeAI("AIzaSyB15xXfGSoLeX9sIdiNq0QBJ5a1jxWQnGE"); // Replace with your actual API key
+
+  const model = genAI.getGenerativeModel({
+    model: "gemini-2.0-flash-exp",
+    systemInstruction:
+      "You talks like a financial advisor helping out - no fancy money words or complicated terms allowed. When you give advice, keep it straight to the point,short,  practical, and something people can start doing right away. Always be encouraging and never judge anyone's money situation, making sure to explain any financial terms in the most basic way possible. TAKE NOTE! MAKE IT A 2 SENTENCE AS MUCH AS POSSIBLE AND BE REALISTIC",
+  });
+
+  const generationConfig = {
+    temperature: 1.6,
+    topP: 0.95,
+    topK: 40,
+    maxOutputTokens: 8192,
+    responseMimeType: "text/plain",
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const chatSession = model.startChat({
+      generationConfig,
+      history: [],
+    });
+
+    try {
+      const result = await chatSession.sendMessage(userInput);
+      setAiResponse(result.response.text());
+    } catch (error) {
+      console.error("Error:", error);
+      setAiResponse("An error occurred. Please try again later.");
+    }
+  };
+  
 
   return (
     <>
@@ -33,14 +71,22 @@ function Navbar() {
               <i className="fa-solid fa-times"></i>
             </label>
             <div className="p-4 mt-10">
-              <input className="primary-input flex items-center gap-4 bg-gray-800"
-                type="email"
-                placeholder="Ask"
-              />
-              <textarea className="primary-input flex gap-4 mt-8 h-72 bg-gray-800"
-                placeholder="AI answers will be displayed here"
-                readOnly
-              />
+              <form onSubmit={handleSubmit}>
+                <input 
+                  className="primary-input flex items-center gap-4 bg-gray-800"
+                  type="text"
+                  placeholder="Ask"
+                  value={userInput}
+                  onChange={(e) => setUserInput(e.target.value)} 
+                />
+                <textarea 
+                  className="primary-input flex gap-4 mt-8 h-72 bg-gray-800"
+                  placeholder="AI answers will be displayed here"
+                  value={aiResponse} 
+                  readOnly 
+                />
+                <button type="submit" className="hidden">Submit</button> 
+              </form>
             </div>
           </div>
 
