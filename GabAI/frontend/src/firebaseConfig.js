@@ -7,6 +7,7 @@ import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+//aiChat Database
 const firebaseConfig = {
   apiKey: "AIzaSyD-_T3L7uY1ifXs1yEEJnH_AdrDHKmm9B0",
   authDomain: "gabai-e2647.firebaseapp.com",
@@ -23,4 +24,4 @@ const analytics = getAnalytics(app);
 
 const db = getFirestore(app);
 
-export { db };
+export { db } from "./firebaseCon";
