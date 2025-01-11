@@ -8,7 +8,7 @@ function Layout() {
 
   return (
     <>
-      <header className="p-3 w-full bg-gray-900 justify-between items-center h-17">x
+      <header className="p-3 w-full bg-gray-800 justify-between items-center h-17">
         <Navbar />
       </header>
       <main>

@@ -112,22 +112,19 @@ function Register() {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-r from-gray-400 to-gray-300">
+    <section className="min-h-screen bg-gray-800">
       <article className="p-6">
         <Link to={'/'}>
           <div className="returnBtn">
             <i className="fa-solid fa-arrow-left text-white"></i>
           </div>
         </Link>
-        <h1 className="text-right text-heading-3 font-bold pb-4 tracking-f-small leading-snug">
-          Unlock the power
+        <h1 className="text-white text-right text-heading-3 font-bold pb-4 tracking-f-small leading-snug">
+          Unlock the power of financial control          
           <br />
-          of financial control
+          at your fingertips swiftly.
           <br />
-          at your fingertips
-          <br />
-          swiftly.
-          <br />
+          
         </h1>
       </article>
       <article className=" bg-gradient-to-r from-gray-200 to-gray-100 w-full py-16 lg:h-[calc(50vh+500px)] px-6 rounded-t-[30px] flex flex-col gap-4">
@@ -140,7 +137,7 @@ function Register() {
               First Name <span className="text-gray-800">*</span>
             </label>
             <input
-              className="primary-input bg-gray-300 text-white"
+              className="primary-input bg-gray-200 text-white"
               name="firstName"
               type="text"
               placeholder="Ex. John"
@@ -156,7 +153,7 @@ function Register() {
               Last Name <span className="text-gray-800">*</span>
             </label>
             <input
-              className="primary-input bg-gray-300 text-white"
+              className="primary-input bg-gray-200 text-white"
               name="lastName"
               type="text"
               placeholder="Ex. Doe"
@@ -172,7 +169,7 @@ function Register() {
               Email <span className="text-gray-800">*</span>
             </label>
             <input
-              className="primary-input bg-gray-300 text-white"
+              className="primary-input bg-gray-200 text-white"
               type="email"
               placeholder="hello@gmail.com"
               value={formData.email}
@@ -188,7 +185,7 @@ function Register() {
             </label>
             <div className="flex items-center justify-center relative">
               <input
-                className="primary-input bg-gray-300 text-white"
+                className="primary-input bg-gray-200 text-white"
                 type={showPwd ? "text" : "password"}
                 placeholder="Enter your password"
                 value={formData.password}
@@ -202,7 +199,7 @@ function Register() {
                 onClick={() => setShowPwd(!showPwd)}
                 className={`cursor-pointer text-gray-800 fa-solid ${
                   showPwd ? "fa-eye" : "fa-eye-slash"
-                } absolute right-1 pr-2 bg-gray-300`}
+                } absolute right-1 pr-2 bg-gray-200`}
               ></i>
             </div>
           </div>
@@ -212,7 +209,7 @@ function Register() {
             </label>
             <div className="flex items-center justify-center relative">
               <input
-                className="primary-input bg-gray-300 text-gray-800"
+                className="primary-input bg-gray-200 text-gray-800"
                 name="confirmPassword"
                 type={showConfirmedPwd ? "text" : "password"}
                 placeholder="Confirm your password"
@@ -229,18 +226,18 @@ function Register() {
                 onClick={() => setShowConfirmedPwd(!showConfirmedPwd)}
                 className={`cursor-pointer text-gray-800 fa-solid ${
                   showConfirmedPwd ? "fa-eye" : "fa-eye-slash"
-                } absolute right-1 pr-2 bg-gray-300`}
+                } absolute right-1 pr-2 bg-gray-200`}
               ></i>
             </div>
           </div>
-          <button type="submit" className="primary-btn">
+          <button type="submit" className="primary-btn bg-gray-800 text-white">
             CREATE AN ACCOUNT
           </button>
         </form>
         <div className="grid grid-cols-3 justify-center items-center">
-          <hr className="bg-secondary h-[2px] border-0"></hr>
+          <hr className="bg-gray-800 h-[2px] border-0"></hr>
           <p className="text-center text-white text-pre-title">OR</p>
-          <hr className="bg-secondary h-[2px] border-0"></hr>
+          <hr className="bg-gray-800 h-[2px] border-0"></hr>
         </div>
         <div onClick={createAccountWithGoogle} className="secondary-btn text-gray-800">
           <i className="fa-brands fa-google text-gray-800"></i> &nbsp;&nbsp;&nbsp;

@@ -64,7 +64,7 @@ function Navbar() {
         <div className="relative">
           <input type="checkbox" id="menu-toggle" className="hidden peer" />
           <label htmlFor="menu-toggle" className="cursor-pointer">
-            <i className="fa-solid fa-bars text-white"></i>
+            <i className="fa-solid fa-bars mt-4 ml-5 absolute text-white"></i>
           </label>
           <div className="fixed top-0 left-0 w-80 h-full bg-gray-800 text-white transform -translate-x-full transition-transform duration-300 ease-in-out peer-checked:translate-x-0" id="sidebar">
             <label htmlFor="menu-toggle" className="absolute top-4 right-4 cursor-pointer">
@@ -90,7 +90,7 @@ function Navbar() {
             </div>
           </div>
 
-          <div className="flex gap-5 md:gap-16 pl-96">
+          <div className="flex justify-center gap-5 md:gap-16">
             <NavLink to={"/dashboard"} title="Home" className={linkClass}>
               <i className="fa-solid fa-house"></i>
             </NavLink>
@@ -101,11 +101,11 @@ function Navbar() {
               <AlertDialogTrigger><i className="fa-solid fa-circle-plus text-white"></i></AlertDialogTrigger>
               <AlertDialogContent className="bg-gray-200 border-0">
                 <AlertDialogHeader className="bg-gray-200 w-full">
-                  <Link to={'/income'}><AlertDialogAction className="w-full"><Button className="text-body text-inc-900 uppercase text-center bg-secondary font-bold tracking-f-widest w-full">Add Income 💸</Button></AlertDialogAction></Link>
+                  <Link to={'/income'}><AlertDialogAction className="w-full"><Button className="text-body text-inc-900 uppercase text-center text-white bg-green-500 hover:bg-green-900 font-bold tracking-f-widest w-full">Add Income 💸</Button></AlertDialogAction></Link>
                   <Link to={'/expense'}><AlertDialogAction className="w-full"><Button className="text-body text-inc-900 uppercase text-center text-white bg-red-500 hover:bg-red-900 font-bold tracking-f-widest w-full">Add Expense 🚀</Button></AlertDialogAction></Link>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                  <AlertDialogCancel className="w-full bg-gray-200 hover:bg-gray-300 border-0 text-white uppercase">Cancel</AlertDialogCancel>
+                  <AlertDialogCancel className="w-full bg-gray-800 hover:bg-gray-400 hover:text-gray-800 border-0 text-white uppercase">Cancel</AlertDialogCancel>
                 </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>
@@ -115,7 +115,7 @@ function Navbar() {
           </div>
         </div>
       ) : (
-        <div className="flex gap-5 md:gap-8">
+        <div className="flex gap-5 md:gap-8 justify-center">
           <NavLink to='/' title="Home" className={linkClass}>
             <i className="fa-solid fa-house"></i>
           </NavLink>

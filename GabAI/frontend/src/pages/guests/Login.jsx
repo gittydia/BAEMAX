@@ -86,14 +86,14 @@ function Login() {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-r from-gray-400 to-gray-300 ">
+    <section className="min-h-screen bg-gray-800 ">
       <article className="p-9">
         <Link to={'/'}>
           <div className="returnBtn bg-gray-800">
             <i className="fa-solid fa-arrow-left text-white"></i>
           </div>
         </Link>
-        <h1 className="text-right text-heading-3 font-bold pb-4 tracking-f-small leading-snug text-gray-800">
+        <h1 className="text-right text-heading-3 font-bold pb-4 tracking-f-small leading-snug text-white">
           Access your financial hub <br/>
           instantly for seamless control <br />
           over your finances.

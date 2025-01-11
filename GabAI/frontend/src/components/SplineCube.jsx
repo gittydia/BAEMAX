@@ -1,7 +1,7 @@
-import Spline from '@splinetool/react-spline';
+import Image from "./assets/dog.png"
 
-export default function SplineCube() {
+function Image() {
   return (
-    <Spline scene="https://prod.spline.design/M3jdVZqwUAOjic99/scene.splinecode" />
+    <img src={dog.png} />
   );
 }
