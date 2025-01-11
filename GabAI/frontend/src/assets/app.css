@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base{
+  ::-moz-selection {
+    background: #18181b
+  }
+  ::-webkit-selection {
+    background: #18181b
+  }
+  ::selection {
+    background: #18181b
+  }
+
+  a,
+  p,
+  span,
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-montserrat;
+  }
+}
+
+@layer components {
+  .returnBtn {
+    @apply w-10 h-10 flex justify-center items-center bg-gray-900 cursor-pointer rounded-full;
+  }
+
+  .primary-label {
+    @apply text-small text-white tracking-f-widest uppercase
+  }
+
+  .primary-input {
+    @apply placeholder:text-body w-full p-2 rounded-md bg-zinc-900 border-0 outline-0 ring-1 ring-accent focus:ring-secondary focus:ring-2
+  }
+
+  .primary-btn {
+    @apply text-small uppercase tracking-f-widest font-bold text-zinc-900 bg-secondary p-2 rounded-md
+  }
+
+  .secondary-btn {
+    @apply text-small uppercase tracking-f-widest font-bold text-white text-center border-accent border-2 p-2 rounded-md cursor-pointer
+  }
+}
