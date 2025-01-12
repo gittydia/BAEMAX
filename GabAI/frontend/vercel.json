@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "framework": "vite",
   "builds": [
     {
@@ -12,6 +14,12 @@
       "src": "/[^.]+",
       "dest": "/",
       "status": 200
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
